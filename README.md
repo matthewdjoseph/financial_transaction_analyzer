@@ -24,4 +24,7 @@ Secondary Language: Javascript
 Tertiary Language: Python  
 Primary Database: MySQL  
   
-This web application will be hosted on Google Cloud due to pricing.
+Hosting  
+-------  
+
+This web application will be deployed on Google Cloud due to pricing.
