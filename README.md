@@ -19,7 +19,7 @@ Docker Containerization
 Multi-Threading  
 Synchronization  
   
-Primary Language: Java  
+<b>Primary Language:</b> Java  
 Secondary Language: Javascript  
 Tertiary Language: Python  
 Primary Database: MySQL  
