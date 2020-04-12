@@ -15,14 +15,14 @@ Analysis Reports - user will be able to view and save various reports on the dat
 Core Features
 -------------
 
-Microservice design
-Docker Containerization
-Multi-Threading
-Synchronization
-
-Primary Language: Java
-Secondary Language: Javascript
-Tertiary Language: Python
-Primary Database: MySQL
-
-This web application will be hosted on Google Cloud due to pricing.
+###Microservice design  
+###Docker Containerization  
+###Multi-Threading  
+###Synchronization  
+  
+###Primary Language: Java  
+###Secondary Language: Javascript  
+###Tertiary Language: Python  
+###Primary Database: MySQL  
+  
+##This web application will be hosted on Google Cloud due to pricing.
