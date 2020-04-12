@@ -20,9 +20,9 @@ Multi-Threading
 Synchronization  
   
 <b>Primary Language:</b> Java  
-Secondary Language: Javascript  
-Tertiary Language: Python  
-Primary Database: MySQL  
+<b>Secondary Language:</b> Javascript  
+<b>Tertiary Language:</b> Python  
+<b>Primary Database:</b> MySQL  
   
 Hosting  
 -------  
