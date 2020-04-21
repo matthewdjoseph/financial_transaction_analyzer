@@ -1,6 +1,7 @@
 import pandas as pd 
 import mysql.connector
 from mysql.connector import Error
+from pandas.io import sql
 
 df = pd.read_csv (r'C:\Users\mdjos\workspaces\financial_transaction_analyzer\dataset\PS_20174392719_1491204439457_log.csv')
 
@@ -19,5 +20,7 @@ if connection.is_connected():
         cursor.execute("select database();")
         record = cursor.fetchone()
         print("You're connected to database: ", record)
+        
+sql.to_sql(df, con=connection, name='transactions', if_exists='replace')
         
 connection.close()
