@@ -1,38 +1,71 @@
 import pandas as pd 
-from sqlalchemy import create_engine, event
+import time
+from sqlalchemy import create_engine, event, text
 from pandas.io import sql
 
-df = pd.read_csv (r'C:\Users\mdjos\workspaces\financial_transaction_analyzer\dataset\PS_20174392719_1491204439457_log.csv')
+df = pd.read_csv (r'C:\Users\mdjos\workspaces\financial_transaction_analyzer\dataset\PS_20174392719_1491204439457_log.csv',
+                  dtype={'step': float,
+                         'type': str,
+                         'amount': float,
+                         'nameOrig': str,
+                         'oldbalanceOrg': float,
+                         'newbalanceOrig': float,
+                         'nameDest': str,
+                         'oldbalanceDest': float,
+                         'newbalanceDest': float,
+                         'isFraud': bool,
+                         'isFlaggedFraud': bool})
 
 print ("File read...")
 
-size = 500000
+df.dropna()
+
+#df.to_csv(r'C:\Users\mdjos\workspaces\financial_transaction_analyzer\dataset\transactions.csv')
+
+size = 1000000
 
 list_of_dfs = [df.loc[i:i+size-1,:] for i in range(0, len(df),size)]
 
-print ("File split...")
+print ("File cleaned and split...")
 
-engine = create_engine("mysql://[user]:[password]@localhost:3308/transactiondb")
+engine = create_engine("mysql://[user]:[password]@localhost:3308/transactiondb?charset=utf8&local_infile=1")
 
 connection = engine.connect()
 
+#query = text("""
+#    LOAD DATA LOCAL INFILE 'C://Users//mdjos//workspaces//financial_transaction_analyzer//dataset//test_data.csv'
+#    INTO TABLE transactions
+#""")
+#tic = time.perf_counter()
+#connection.execute("TRUNCATE TABLE transactions")
+#connection.execute(query)
+#toc = time.perf_counter()
+
+#print (toc - tic)
+
 try:
+    tic = time.perf_counter()
+    
     connection.execute("TRUNCATE TABLE transactions")
     
     print ("Table cleared...")
-    
+   
     for i in list_of_dfs:
+        
         sql.to_sql(i, 
                    con=connection, 
                    name='transactions', 
                    schema='transactiondb', 
                    if_exists='append',
                    method=None,
-                   chunksize=10000)
+                   chunksize=1000)
         print ("Finished a group...")
+    
+    toc = time.perf_counter()
     
 except Exception as e:
     print (e)
         
+print (toc - tic)
 print ('done....')
 connection.close()
