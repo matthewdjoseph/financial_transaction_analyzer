@@ -32,17 +32,6 @@ engine = create_engine("mysql://[user]:[password]@localhost:3308/transactiondb?c
 
 connection = engine.connect()
 
-#query = text("""
-#    LOAD DATA LOCAL INFILE 'C://Users//mdjos//workspaces//financial_transaction_analyzer//dataset//test_data.csv'
-#    INTO TABLE transactions
-#""")
-#tic = time.perf_counter()
-#connection.execute("TRUNCATE TABLE transactions")
-#connection.execute(query)
-#toc = time.perf_counter()
-
-#print (toc - tic)
-
 try:
     tic = time.perf_counter()
     
