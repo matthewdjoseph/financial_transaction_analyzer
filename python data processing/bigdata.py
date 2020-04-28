@@ -20,9 +20,7 @@ print ("File read...")
 
 df.dropna()
 
-#df.to_csv(r'C:\Users\mdjos\workspaces\financial_transaction_analyzer\dataset\transactions.csv')
-
-size = 1000000
+size = 2000000
 
 list_of_dfs = [df.loc[i:i+size-1,:] for i in range(0, len(df),size)]
 
@@ -47,7 +45,7 @@ try:
                    schema='transactiondb', 
                    if_exists='append',
                    method=None,
-                   chunksize=1000)
+                   chunksize=2000)
         print ("Finished a group...")
     
     toc = time.perf_counter()
