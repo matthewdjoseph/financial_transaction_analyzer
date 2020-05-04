@@ -14,7 +14,7 @@ public class DataController {
 		
 		// Script not launching
 		String fetching = "python " + "C:\\Users\\mdjos\\workspaces\\financial_transaction_analyzer\\python data processing\\bigdata.py";
-		String[] commandToExecute = new String[]{"cmd.exe", "/c", fetching};
+		String[] commandToExecute = new String[]{"cmd.exe", "/c start", fetching};
 		Runtime.getRuntime().exec(commandToExecute);
 		
         return "Processed!";
