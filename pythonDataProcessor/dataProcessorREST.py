@@ -6,9 +6,6 @@ app = Flask(__name__)
 api = Api(app)
 
 class Data(Resource):
-    #def get(self, name):
-        
-        #return , 404
         
     def post(self):
 
@@ -16,13 +13,11 @@ class Data(Resource):
         
         return "Data processed", 201
         
-    #def put(self, name):
+    def delete(self):
         
-        #return user, 201
+        bigdata.do_remove()
         
-    #def delete(self, name):
-        
-        #return , 200
+        return "Data Cleared", 200
         
 api.add_resource(Data, "/processdata/")
 
