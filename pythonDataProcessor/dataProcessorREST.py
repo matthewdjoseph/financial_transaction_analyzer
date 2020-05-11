@@ -1,6 +1,11 @@
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
 import bigdata
+import py_eureka_client.eureka_client as eureka_client
+
+eureka_client.init_registry_client("http://localhost:8761/eureka/",
+app_name="DataProcessor",
+instance_port=8761)
 
 app = Flask(__name__)
 api = Api(app)
