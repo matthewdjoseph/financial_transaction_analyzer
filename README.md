@@ -1,16 +1,16 @@
 Financial Transaction Analyzer
 -----------------------------
 
-This web application will process a large set of financial transaction data, analyze and report on it to the client.
+This web application will efficiently analyze financial transaction records and extrapolate that data for future trend reporting.  
 
 User Stories
 ------------
 
 Login Service - this will authenticate users and allow them access to the system  
 
-Manage Data - authenticated users will be able to deactivate the data and upload new data  
+Manage Data - authenticated users will be able to deactivate the data set and upload new data  
 
-Analysis Reports - user will be able to view and save various reports on the data  
+Trend Reporting - users can pull reports 
 
 Core Features
 -------------
@@ -21,8 +21,7 @@ Multi-Threading
 Synchronization  
   
 <b>Primary Language:</b> Java  
-<b>Secondary Language:</b> Javascript  
-<b>Tertiary Language:</b> Python  
+<b>Secondary Language:</b> Python
 <b>Primary Database:</b> MySQL  
   
 Hosting  
